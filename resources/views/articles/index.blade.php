@@ -28,7 +28,7 @@
             </tr>
             @foreach ($articles as $article)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td>{{ $article->id }}</td>
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->body }}</td>
                 <td>

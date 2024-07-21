@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -13,7 +13,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('articles.index', ["articles" => $articles]);
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -43,7 +43,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
         return view('articles.show', compact('article'));
 
@@ -52,7 +52,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
         return view('articles.edit', compact('article'));
     }
